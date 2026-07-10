@@ -173,8 +173,68 @@ var Snake = (function () {
         }
         ctx.fillStyle = '#C77DFF';
       }
-      ctx.fillRect(trail[trail.length-1].x * gridSize+1, trail[trail.length-1].y * gridSize+1, gridSize-2, gridSize-2);
+      roundRect(
+ctx,
+trail[trail.length-1].x * gridSize + 2,
+trail[trail.length-1].y * gridSize + 2,
+gridSize - 4,
+gridSize - 4,
+10
+);
 
+// Eyes
+let hx = trail[trail.length-1].x * gridSize;
+let hy = trail[trail.length-1].y * gridSize;
+
+ctx.fillStyle = "white";
+
+if(lastAction == ActionEnum.right){
+
+ctx.beginPath();
+ctx.arc(hx+24,hy+10,2,0,Math.PI*2);
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(hx+24,hy+22,2,0,Math.PI*2);
+ctx.fill();
+
+}
+
+else if(lastAction == ActionEnum.left){
+
+ctx.beginPath();
+ctx.arc(hx+8,hy+10,2,0,Math.PI*2);
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(hx+8,hy+22,2,0,Math.PI*2);
+ctx.fill();
+
+}
+
+else if(lastAction == ActionEnum.up){
+
+ctx.beginPath();
+ctx.arc(hx+10,hy+8,2,0,Math.PI*2);
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(hx+22,hy+8,2,0,Math.PI*2);
+ctx.fill();
+
+}
+
+else{
+
+ctx.beginPath();
+ctx.arc(hx+10,hy+24,2,0,Math.PI*2);
+ctx.fill();
+
+ctx.beginPath();
+ctx.arc(hx+22,hy+24,2,0,Math.PI*2);
+ctx.fill();
+
+}
       if (player.x == fruit.x && player.y == fruit.y) {
         if(!fixedTail) tail++;
         points++;
