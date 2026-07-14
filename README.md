@@ -45,3 +45,9 @@ A classic Snake Game built with HTML, CSS, and JavaScript. Control the snake, ea
 <img src="https://capsule-render.vercel.app/api?type=rect&color=8A2BE2&height=2&section=footer"/>
 
 ---
+
+<p align="center">
+
+Made with ❤️ by <b>Harsh Singh</b>
+
+</p>
